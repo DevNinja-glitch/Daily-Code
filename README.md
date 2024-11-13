@@ -23,7 +23,7 @@ If you're also learning, you might find some of the exercises and solutions help
 
 ## 💬 Connect
 If you have any questions or tips, feel free to open an issue or share thoughts!
-- [GitHub Profile](https://github.com/your-username)
+- [GitHub Profile](https://github.com/DevNinja-glitch)
 
 ---
 
