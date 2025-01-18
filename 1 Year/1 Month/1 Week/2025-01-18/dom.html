@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <h1>To Do List</h1>
+    <input type="text" id="inputField">
+    <button class="btn">Click Me</button>
+    </div>
+    <div class="list"></div>
+    <script>
+        let inputElem = document.getElementById('inputField');
+        let inputBtn = document.querySelector(".btn");
+        let myList = document.querySelector(".list");
+       const  addTodo=()=>{
+        console.log(inputElem.value);
+              let pElem = document.createElement("p");
+              pElem.textContent=inputElem.value;
+              console.log(pElem);
+              myList.append(pElem);
+        };
+        inputBtn.addEventListener("click",()=>{
+            addTodo();
+        });
+    </script>
+</body>
+</html>
