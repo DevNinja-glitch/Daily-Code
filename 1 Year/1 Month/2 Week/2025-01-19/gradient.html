@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+           margin:0%;
+           padding:0%;
+           box-sizing: border-box;
+        }
+        
+        html,body{
+           height: 100%;
+           width: 100%;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to right top,
+            #051937,
+            #004d7a,
+            #008793,
+            #00bf72,
+            #a8eb12
+            );
+        }
+        .btncss{
+            background-color: #051937; 
+            color: white;             
+            border: none;
+            width: 100px;
+            border-radius: 15px;
+            padding: 10px 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding: 10px;
+            margin-left: 10px;
+        }
+        .btncss:hover{
+           padding: 13px;
+        }
+        .btncontainer{
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        }
+        #btn2{
+            background-color: #a8eb12;
+            color: #051937;
+        }
+        h5{
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+        }
+        .text{
+            color: white;                                
+            font-size: 10px;                          
+            padding: 15px;                             
+            border-left: 2px solid white;                                   
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            border-radius: 1px; 
+            width: 300px;                              
+            margin: 20px auto;   
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div class="btncontainer">
+        <button class="btncss" id="btn1">#051937</button>
+    <button class="btncss"  id="btn2">#008793</button>
+    </div>
+        <h5 class="centercss" >Code of the Gradient Here</h5>
+    <div class="text">
+        background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+    </div>
+</section>
+<script>
+    let b1 = document.getElementById("btn1");
+    let b2 = document.getElementById("btn2");
+    let copytext = document.querySelector(".text");
+    let btntext1 = document.getElementById("btn1");
+    let btntext2 = document.getElementById("btn2");
+    let rgb1 = "#004773";
+    let rgb2 = "#54d542";
+
+    const colorGenerator = () => {
+        let hexavalues = ("0123456789abcdef");
+          colors = "#";
+          for(let i = 0; i < 6; i++){ 
+           colors = colors + hexavalues[Math.floor(Math.random()*16)];
+          }
+          return colors;
+    }
+
+    const handlebtn1 = () => {
+         rgb1 = colorGenerator();
+         document.body.style.backgroundImage = 
+         `linear-gradient(to right, ${rgb1}, #54d542)`;
+         copytext.innerHTML = `background-image: linear-gradient(to right, ${rgb1}, ${rgb2})`;
+         btntext1.innerHTML = `${rgb1}`;
+    };
+
+    const handlebtn2 = () => {
+         rgb2 = colorGenerator();
+         document.body.style.backgroundImage = 
+         `linear-gradient(to right, #004773, ${rgb2})`;
+         copytext.innerHTML = `background-image: linear-gradient(to right, ${rgb1}, ${rgb2})`;
+         btntext2.innerHTML = `${rgb2}`;
+    };
+
+    copytext.addEventListener("click", () => {
+        navigator.clipboard.writeText(copytext.innerHTML);
+    })
+
+    b1.addEventListener("click", handlebtn1);
+    b2.addEventListener("click", handlebtn2);
+</script>
+</body>
+</html>
+

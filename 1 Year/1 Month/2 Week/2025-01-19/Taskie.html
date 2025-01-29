@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="taskie.css">
+</head>
+<body>
+    <h1>Zara You have to do this!</h1>
+   <form>
+    <div class="mee">
+        <input type="text" id="hold">
+        <button class="btn">Add Taskie</button>
+    </div>
+    <section class="taselement"></section>
+   </form>
+    <script>
+        let element = document.querySelector(".taselement");
+        let task = document.getElementById("hold");
+        let localArray = [];
+        const addElement = (e) => {
+            e.preventDefault();
+            
+            const listTask = task.value.trim();
+            localArray.push(listTask);
+            console.log(localArray);
+            
+            localStorage.setItem("Mytaskie",JSON.stringify(localArray));
+
+            const divElement = document.createElement("div");
+            divElement.classList.add("main_div");
+            divElement.innerHTML =  ` <li>${task.value}</li> <button class="btn">Delete</button>`;
+            element.append(divElement);
+        }
+
+        document.querySelector(".btn").addEventListener("click",(e) => {
+            addElement(e);
+        })
+    </script>
+</body>
+</html>
